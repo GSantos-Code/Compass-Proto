@@ -11,11 +11,20 @@ class OpsFacts{
 		let ClassName= this;
 
 		if(value >= 3){
-			return ClassName.img(__dirname + "/Signals/dan.png");
+			return {
+				ico: ClassName.img(__dirname + "/Signals/dan.png"),
+				color: "red"
+			}
 		}else if(value < 3 && value >= 1){
-			return ClassName.img(__dirname + "/Signals/warn.png");
+			return {
+				ico: ClassName.img(__dirname + "/Signals/warn.png"),
+				color: "gold"
+			}
 		}else if(value < 1){
-			return ClassName.img(__dirname + "/Signals/ok.png");
+			return {
+				ico: ClassName.img(__dirname + "/Signals/ok.png"),
+				color: "green"
+			}
 		}else{
 			console.log("Erro no Signal");
 		}
@@ -40,7 +49,7 @@ class OpsFacts{
 		var n1= this.convert(ant);
 		var n2= this.convert(pos);
 		var res= Math.abs(n1-n2)
-		return res;
+		return parseFloat(res);
 	}
 }
 

@@ -7,22 +7,24 @@ class Factors extends Ops{
 		super();
 	}
 
-	HC_XMSP(name,ant,pos){
-		//testeok
+
+	HC_XMSP(nameant,ant,namepos,pos){
+		var json= {}
 		let desvio= this.desvio(ant,pos);
 		let logic= desvio <= 1 ? 0 : desvio > 3 ? 2 : 1;
 		logic= isNaN(logic) ? "" : logic;
-		let signal= this.signal(logic);
+		let signal= this.signal(desvio);
 
-		return{
-			"name": name,
-			"signal": signal,
-			"value": logic
+		json[nameant]= ant;
+		json[namepos]= pos;
+		try{
+		json["signal"]= signal.ico;
+		json["color"]= signal.color;
 		}
-		
+		catch(e){}
+		return json
 	}
 
 }
 
-var a= new Factors();
-console.log(a.HC_XMSP("1,50mm","0,25mm"));
+module.exports= Factors;
