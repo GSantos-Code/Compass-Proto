@@ -14,7 +14,9 @@ class PCBuilt extends PCHeader{
 
 		var vetors= [["13","23"],["14","24"],["16","26"],["33","43"],["36","46"]];
 		var fators= ["HC","XMSP"];
-
+        
+        
+        //Definição dos HCS e XMSPS
 		fators.map(function(fact){
 			vetors.map(function(vetor){
 				var vant= ClassName.res[fact + vetor[0]];
@@ -26,8 +28,9 @@ class PCBuilt extends PCHeader{
 				}
 			})
 		})
+	 
 
-		console.log(json)
+		json.HCm= Math.round((json.HC1323.logic+json.HC1424.logic+json.HC1626.logic)/3)
 	}
 }
 

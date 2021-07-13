@@ -22,6 +22,8 @@ class Factors extends Ops{
 		json["color"]= signal.color;
 		}
 		catch(e){}
+		
+		json.logic= logic
 		return json
 	}
 
